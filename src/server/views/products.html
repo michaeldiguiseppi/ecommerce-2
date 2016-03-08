@@ -7,8 +7,59 @@
 
   <div class="container">
 
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <div class="row vdivide">
+      <div class="col-xs-3 col-md-3 col-lg-3">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">Available Colors</button>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="getBlue">Blue</a></li>
+            <li><a href="#" class="getRed">Red</a></li>
+            <li><a href="#" class="getGray">Space Gray</a></li>
+          </ul>
+        </div>
+        <br>
+        <br>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">Available Styles</button>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="getRad">Rad People</a></li>
+            <li><a href="#" class="getG19">G19</a></li>
+          </ul>
+        </div>
+        <br><br>
+        <div class="btn-group waitForIt">
+          <button type="button" class="btn btn-primary">Show All</button>
+        </div>
+      </div>
+
+      <div class="col-xs-9 col-md-9 col-lg-9" style="border-left: 1px solid #F8F5F0;">
+        {% for shirt in shirts%}
+        <div class="span2 {{shirt.design}} {{shirt.color}}">
+          <div class="thumbnail">
+            <img alt="post image" class = "size" src="{{shirt.img}}">
+            <div class="caption">
+              <h3>{{shirt.design}} {{shirt.color}}</h3>
+              <div class="row-fluid">
+                <div class="span6">
+                  <p class="lead">${{shirt.price}}</p>
+                </div>
+                <div class="span6">
+                  <a class="btn btn-success btn-block cartAdd" href="#">Add to cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
 
   </div>
 
