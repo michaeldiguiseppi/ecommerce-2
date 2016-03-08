@@ -16,6 +16,30 @@ var queries   = require('../queries.js');
   11. log out '/logout'                                   GET
 */
 
+/*
+  var user = {
+    username: ,
+    admin: t/f
+  }
+
+  function ensureLoggedIn (req, res, next) {
+    if (!req.session.user) {
+      return res.redirect('/login');
+    } else {
+      return next();
+    }
+  }
+
+  function ensureAdmin (req, res, next) {
+  if (!req.session.user.admin) {
+    return res.redirect('/login');
+  } else {
+    return next();
+  }
+}
+
+*/
+
 router.get('/', function(req, res, next) {
   // render the index page with a few selected products from the DB.
   res.render('index', { title: 'Express' });
