@@ -6,10 +6,87 @@
 {% block content %}
 
   <div class="container">
+        <form class="form-horizontal" method="POST" action="/restaurants/{{rest_id}}/reviews/{{review.id}}/edit">
+            <fieldset>
 
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+                {% if edit %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Design</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" maxlength="20" minlength="3" id="name" name="design" placeholder="Design Name" value="{{product.design}}" required>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Design</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" maxlength="20" minlength="3" id="name" name="design" placeholder="Design Name"required>
+                        </div>
+                    </div>
+                {% endif %}
 
-  </div>
+                {% if edit %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Color</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="name" name="color" placeholder="color name" value="{{product.color}}" required>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Color</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="name" name="color"  required>
+                        </div>
+                    </div>
+                {% endif %}
+
+
+                {% if edit %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Price</label>
+                        <div class="col-lg-3">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="price name" value="{{product.price}}" required>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Price</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="name" name="price"  required>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if edit %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Image Source</label>
+                        <div class="col-lg-3">
+                            <input type="number" class="form-control" id="price" name="img" placeholder="Please give a url" value="{{product.img}}" required>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Image Source</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="img" name="img"  required>
+                        </div>
+                    </div>
+                {% endif %}
+
+
+                <div class="form-group inline">
+                    <div class="col-lg-4 col-lg-offset-2 inline">
+                        <button type="submit" class="btn btn-primary submit">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="form-group row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <a href="/restaurants/{{rest_id}}"><button class="btn btn-danger">Cancel</button></a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
