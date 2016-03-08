@@ -1,8 +1,146 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+/* add custom styles */
+
+/*nav*/
+
+.circleCost {
+    color: #93C54b;
+}
+
+
+/* Image slider styling */
+.slider {
+  height: 250px;
+  background-color: black;
+}
+
+#slider {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+#slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.featured {
+  text-align: center;
+}
+
+/* Class */
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Usage as a mixin */
+.element {
+  .center-block();
+}
+
+
+/* Format input fields to add red border to checkout page */
+
+input:invalid:focus {
+    outline: none;
+    border-color: rgba(171, 7, 7, .6);
+    box-shadow: 0 0 5px rgba(171, 7, 7, .6);
+}
+
+/* Validate Email */
+
+.success {
+    outline: none;
+    border-color: rgba(68, 173, 24, 0.6);
+    box-shadow: 0 0 5px rgba(68, 173, 24, 0.6);
+}
+
+.shake:not(:focus) {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+/*Homepage hover */
+
+.homepage-hover {
+  height: 100%;
+/*  padding-top: 155px;*/
+  opacity: 0;
+  background-color:rgba(0,0,0,0.2);
+}
+
+.background-image {
+  height: 461px;
+  width: 387px;
+  margin: 0 auto;
+}
+
+.cartAdd {
+  position: relative;
+  bottom: 0;
+}
+
+.one {
+  background-image: url('../shirtImg/radPeopleGray.png');
+}
+
+.two{
+  background-image: url('../shirtImg/g19Blu.png');
+}
+
+.three {
+  background-image: url('../shirtImg/radPeopleRed.png');
+}
+
+/* ************** Products *************************/
+
+.size {
+  width: 200px;
+}
+
+
+
+/* *************** Checkout ************************/
+
+input.creditWarning {
+    outline: none;
+    border-color: rgba(252, 2, 2, .6);
+    box-shadow: 0 0 5px rgba(252, 2, 2, .6);
+    border-radius: 5px;
+}
+
+.hidden {
+  display: none;
 }
