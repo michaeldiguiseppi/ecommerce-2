@@ -7,29 +7,14 @@
 
   <div class="container">
 
-      <section class ="signup bg-warning" id="newsletterBar">
-        <div class="container-fluid">
-          <div class ="row">
-              <div class ="col-lg-8 col-lg-offset-4">
-                <form class="form-inline">
-                  <label for="NewsletterSignup" class="control-label"><h5>Sign up for the <em>RAD</em> Newsletter &nbsp; &nbsp;</h5></label>
-                    <input type="email" required name="email" class="form-control input-sm" id="NewsletterSignup" placeholder="john@example.com" >
-                    <button type="submit" class="btn btn-primary btn-xs newsSubmit">NOW!!</button>
-                </form>
-               </div>
-              </div>
-            </div>
-          </div>
-      </section>
-
       <section class = "slider text-center">
         <div class="container">
           <div class="slider-image" id="slider">
-            <img src="../../image/denver_cropped.png" alt="slide image Denver" id="1">
-            <img src="../../image/austin_cropped.png" alt="slide image Austin" id="2">
-            <img src="../../image/phoenix_cropped.png" alt="slide image Phoenix" id="3">
-            <img src="../../image/sanFran_cropped.png" alt="slide image San Francisco" id="4">
-            <img src="../../image/seattle_cropped.png" alt="slide image Seattle" id="5">
+            <img src="/image/denver_cropped.png" alt="slide image Denver" id="1">
+            <img src="/image/austin_cropped.png" alt="slide image Austin" id="2">
+            <img src="/image/phoenix_cropped.png" alt="slide image Phoenix" id="3">
+            <img src="/image/sanFran_cropped.png" alt="slide image San Francisco" id="4">
+            <img src="/image/seattle_cropped.png" alt="slide image Seattle" id="5">
           </div>
         </div>
       </section>
@@ -47,9 +32,9 @@
             <div class ="row">
                 {% for shirt in shirts %}
                   <div class="col-lg-4 col-xs-12" >
-                    <img src="{{shirt.img}}" alt="shirt image">
+                    <img src="./image/{{shirt.img}}" alt="shirt image">
                     <div class="homepage-hover">
-                      <button type="submit" class="btn btn-success btn-block cartAdd">Add to Cart</button>
+                      <a href="/products/{{shirt.id}}/add" class="btn btn-success btn-block cartAdd">Add to Cart</a>
                     </div>
                     <br>
                     <h4>{{shirt.design}} {{shirt.color}}</h4>

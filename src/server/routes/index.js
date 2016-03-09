@@ -1,6 +1,6 @@
 var express   = require('express');
 var router    = express.Router();
-var queries   = require('../queries.js');
+var queries   = require('../queries_m.js');
 
 /*
   1. index  '/'                                           GET
@@ -50,7 +50,7 @@ router.get('/products', function(req, res, next) {
   res.render('products', {title: 'Products'});
 });
 
-router.post('/products/:id/add_cart', function(req, res, next) {
+router.post('/products/:id/add', function(req, res, next) {
   // not sure if necessary, adds the specified ID to the shopping cart.
   // possibly using session storage before inserting to the database?
   res.redirect('/products');
