@@ -1,6 +1,6 @@
 var express   = require('express');
 var router    = express.Router();
-var queries   = require('../queries_v.js');
+var queries   = require('../queries_m.js');
 
 function ensureAdmin (req, res, next) {
   if (!req.session.user.admin) {
