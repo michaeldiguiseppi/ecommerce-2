@@ -42,12 +42,16 @@ var queries   = require('../queries_m.js');
 
 router.get('/', function(req, res, next) {
   // render the index page with a few selected products from the DB.
-  res.render('index', { title: 'Express' });
+  queries.getFeaturedProducts().then(function(data) {
+    res.render('index', { shirts: data });
+  });
 });
 
 router.get('/products', function(req, res, next) {
   // get all products to render the product page.
-  res.render('products', {title: 'Products'});
+  queries.getAllProducts().then(function(data) {
+    res.render('products', {title: 'Products', shirts: data});
+  });
 });
 
 router.post('/products/:id/add', function(req, res, next) {
