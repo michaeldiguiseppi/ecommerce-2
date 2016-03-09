@@ -8,36 +8,45 @@ function Users () {
   return knex('users');
 }
 
+function Carts() {
+  return knex('carts');
+}
+
 function Orders () {
   return knex('orders');
 }
 
 module.exports = {
   getAllProducts: function() {
-    // get all the products from the DB.
+    return Products();
   },
   getOneProduct: function(id) {
-    // get one product from the DB, specified by ID.
+    return Products().where('id', id);
   },
-  addProductToOrder: function(id) {
-    // add product to order.  potentially session storage?
+  //ADMIN QUERIES
+  adminDash: function() {
+    return Products().innerJoin('orders', 'products.id', 'orders.product_id');
   },
-  insertProduct: function(id) {
-    // insert new product to DB.
+  insertProduct: function(body) {
+    return Products().insert({design: body.design, img: body.img, color: body.color, price: body.price});
   },
-  updateProduct: function(id) {
-    // update product in DB.
+  updateProduct: function(id, body) {
+    return Products().where('id', id).update({design: body.design, img: body.img, color: body.color, price: body.price});
   },
   deleteProduct: function(id) {
-    // delete a product from the DB.
+    return Products().where('id', id).del();
   },
-  getUser: function(body) {
-    // get user based on email address, and compare password.
+  //USER QUERIES
+  addProductToCart: function(userId, productId) {
+    return Carts().insert({user_id: userId, product_id: productId});
+  },
+  checkout: function(id) {
+    return Carts().where('user_id', id);
+  },
+  userDash: function(id) {
+    return Users().where('id', id).innerJoin('orders', 'users.id', 'orders.user_id');
   },
   addUser: function(body) {
-    // insert a new user into the DB.
-  },
-  getOrdersByUser: function(id) {
-    // get all orders, based on the user ID, for populating the user account page.
+    return Users().insert({email: body.email, password: body.email});
   }
 };
