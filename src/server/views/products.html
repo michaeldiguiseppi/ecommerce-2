@@ -6,7 +6,6 @@
 {% block content %}
 
   <div class="container">
-
     <div class="row vdivide">
       <div class="col-xs-3 col-md-3 col-lg-3">
         <div class="btn-group">
@@ -41,7 +40,7 @@
       </div>
 
       <div class="col-xs-9 col-md-9 col-lg-9" style="border-left: 1px solid #F8F5F0;">
-        {% for shirt in shirts%}
+        {% for shirt in shirts %}
         <div class="span2 {{shirt.design}} {{shirt.color}}">
           <div class="thumbnail">
             <img alt="post image" class = "size" src="./image/{{shirt.img}}">
