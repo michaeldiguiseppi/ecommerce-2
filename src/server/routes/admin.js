@@ -47,7 +47,6 @@ router.get('/update-product/:id', function(req, res, next) {
     });
 });
 
-
 router.post('/delete/:id', function(req, res, next) {
     queries.deleteProduct(req.params.id)
     .then(function() {
