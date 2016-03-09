@@ -9,29 +9,6 @@ $(document).on('ready', function() {
      });
 
 
-    // Validate Email
-
-    $('#NewsletterSignup').on('blur', function () {
-      if ($('#NewsletterSignup').val().split('').indexOf('@') !== -1){
-        $('#NewsletterSignup').removeClass('warning');
-        $('#NewsletterSignup').removeClass('shake');
-        $('#NewsletterSignup').addClass('success');
-      } else {
-        $('#NewsletterSignup').addClass('shake');
-        $('#NewsletterSignup').addClass('warning');
-        $('#NewsletterSignup').removeClass('success');
-      }
-
-    });
-
-    $('.newsSubmit').on('click', function(event) {
-      event.preventDefault();
-      if ($('#NewsletterSignup').hasClass('success')) {
-        $('#newsletterBar').hide();
-      };
-    })
-
-
     // Slider
     var sliderInt = 1;
     var sliderNext = 2;
@@ -59,4 +36,3 @@ $(document).on('ready', function() {
     }
 
 });
-
