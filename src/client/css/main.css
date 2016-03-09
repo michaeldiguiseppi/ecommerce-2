@@ -31,6 +31,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
+    left: -15px;
 }
 
 .featured {
@@ -98,7 +99,7 @@ input:invalid:focus {
   height: 100%;
 /*  padding-top: 155px;*/
   opacity: 0;
-  background-color:rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
 }
 
 .background-image {
@@ -113,21 +114,27 @@ input:invalid:focus {
 }
 
 .one {
-  background-image: url('../shirtImg/radPeopleGray.png');
+  background-image: url('../image/radPeopleGray.png');
 }
 
 .two{
-  background-image: url('../shirtImg/g19Blu.png');
+  background-image: url('../image/g19Blu.png');
 }
 
 .three {
-  background-image: url('../shirtImg/radPeopleRed.png');
+  background-image: url('../image/radPeopleRed.png');
 }
 
 /* ************** Products *************************/
 
 .size {
   width: 200px;
+}
+
+.span2 {
+  width: 25%;
+  margin: 20px 30px;
+  display: inline-block;
 }
 
 
