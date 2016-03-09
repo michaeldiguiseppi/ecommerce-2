@@ -33,11 +33,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-
+function ensureLoggedIn (req, res, next) {
+  if (!req.session.user) {
+    return res.redirect('/login');
+  } else {
+    return next();
+  }
+}
 
 // *** main routes *** //
 app.use('/', routes);
-app.use('/users', users);
+app.use(ensureLoggedIn);
+app.use('/user', users);
 app.use('/admin', admin);
 
 
