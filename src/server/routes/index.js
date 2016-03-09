@@ -50,7 +50,7 @@ router.get('/products', function(req, res, next) {
   res.render('products', {title: 'Products'});
 });
 
-router.post('/products/:id/add_cart', function(req, res, next) {
+router.post('/products/:id/add', function(req, res, next) {
   // not sure if necessary, adds the specified ID to the shopping cart.
   // possibly using session storage before inserting to the database?
   res.redirect('/products');
