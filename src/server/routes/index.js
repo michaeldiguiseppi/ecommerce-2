@@ -1,6 +1,6 @@
 var express   = require('express');
 var router    = express.Router();
-var queries   = require('../queries.js');
+var queries   = require('../queries_m.js');
 
 /*
   1. index  '/'                                           GET
