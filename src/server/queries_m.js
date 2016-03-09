@@ -13,14 +13,22 @@ function Orders () {
 }
 
 module.exports = {
+  getFeaturedProducts: function() {
+    return Products().select().limit(3).then(function(data) {
+      return data;
+    });
+  },
   getAllProducts: function() {
     // get all the products from the DB.
+    return Products().select().then(function(data) {
+      return data;
+    });
   },
   getOneProduct: function(id) {
     // get one product from the DB, specified by ID.
   },
-  addProductToOrder: function(id) {
-    // add product to order.  potentially session storage?
+  addProductToCart: function(id) {
+    // add product to cart.  potentially session storage?
   },
   insertProduct: function(id) {
     // insert new product to DB.
