@@ -43,7 +43,7 @@ var queries   = require('../queries_m.js');
 router.get('/', function(req, res, next) {
   // render the index page with a few selected products from the DB.
   queries.getFeaturedProducts().then(function(data) {
-    res.render('index', { shirts: data });
+    res.render('index', { title: 'index', shirts: data });
   });
 });
 
