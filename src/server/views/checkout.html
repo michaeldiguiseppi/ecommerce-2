@@ -46,8 +46,7 @@
 <div class="container">
   <!-- <form class="fullForm form-horizontal"> -->
   <div class="container border-right col-lg-5">
-    <form class="form-horizontal" id="firstForm">
-      <fieldset>
+    <form class="form-horizontal" id="firstForm" method="POST" action="/checkout">
         <div class="col-lg-12">
           <h3 class="text-left">Billing</h3>
         </div>
@@ -150,14 +149,9 @@
             </div>
           </div>
         </div>
-
-      </fieldset>
-    </form>
-  </div>
+      </div>
 
   <div class="container col-lg-5 col-lg-offset-2">
-    <form class="form-horizontal" id="secondForm">
-      <fieldset>
         <div class="col-lg-12">
           <h3 class="text-left">Shipping</h3>
         </div>
@@ -250,8 +244,6 @@
         </div>
         <br>
         <br>
-      </fieldset>
-    </form>
   </div>
   <br>
     <div class="col-lg-6 col-lg-offset-3">
@@ -260,7 +252,6 @@
     <br>
 
   <div class="row">
-  <form name="thirdForm">
     <div class="form-group">
       <div class="col-lg-6 col-lg-offset-3">
             <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name" required>
@@ -280,7 +271,7 @@
         <div class="form-group">
             <div class="col-lg-4 col-lg-offset-3">
               <select class="form-control card-expiry-month" name="expiry-month" id="expiry-month" required>
-                <option>Expiration Month</option>
+                <option disabled selected>Expiration Month</option>
                 <option value="01">January (01)</option>
                 <option value="02">February (02)</option>
                 <option value="03">March (03)</option>
@@ -297,7 +288,7 @@
             </div>
             <div class="col-lg-2">
               <select class="form-control card-expiry-year" name="expiry-year" required>
-                <option>Expiration Year</option>
+                <option disabled selected>Expiration Year</option>
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>

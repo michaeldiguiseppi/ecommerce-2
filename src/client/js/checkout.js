@@ -72,7 +72,7 @@ $('.card-expiry').on('blur', function() {
         expiry.addClass('creditWarning');
     } else {
         expiry.removeClass('creditWarning');
-    };
+    }
 });
 
 
@@ -83,7 +83,7 @@ $('.card-cvc').on('blur', function() {
         cvcCode.addClass('creditWarning');
     } else {
         cvcCode.removeClass('creditWarning');
-    };
+    }
 });
 
 
@@ -97,4 +97,3 @@ function stripeResponseHandler(status, response) {
         $('input, select').val('');
     }
 }
-
