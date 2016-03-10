@@ -1,3 +1,4 @@
+require('dotenv').load();
 var express   = require('express');
 var router    = express.Router();
 var queries   = require('../queries_m.js');
@@ -54,24 +55,26 @@ router.get('/products', function(req, res, next) {
   });
 });
 
-router.post('/products/:id/add', function(req, res, next) {
-  // not sure if necessary, adds the specified ID to the shopping cart.
-  // possibly using session storage before inserting to the database?
-  res.redirect('/products');
-});
+// router.post('/products/:id/add', function(req, res, next) {
+//   // not sure if necessary, adds the specified ID to the shopping cart.
+//   // possibly using session storage before inserting to the database?
+//   res.redirect('/products');
+// });
 
-router.get('/checkout', function(req, res, next) {
+router.get('/charge', function(req, res, next) {
   // render the checkout form.
-  res.render('checkout', {title: 'Checkout'});
+  res.render('charge', {
+    title: 'Checkout',
+    key: process.env.STRIPE_PUBLIC_KEY
+  });
 });
 
-router.post('/checkout', function(req, res, next) {
-  // submit the checkout form, query the stripe API, and redirect to home after success.
+router.post('/charge', function(req, res, next) {
+
   res.redirect('/');
 });
 
-router.get('/sign_in', function(req, res, next) {
-  // render the sign in page.
+router.get('/login', function(req, res, next) {
   res.render('login', {title: 'Sign In'});
 });
 
@@ -90,45 +93,45 @@ router.post('/sign_up', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/my_account', function(req, res, next) {
-  // render the my_account page to show users past orders.
-  res.render('user_account', {title: 'Your Account'});
-});
+// router.get('/my_account', function(req, res, next) {
+//   // render the my_account page to show users past orders.
+//   res.render('user_account', {title: 'Your Account'});
+// });
 
-router.get('/admin', function(req, res, next) {
-  // render the admin page in order to see all orders.
-  res.render('admin', {title: 'Admin Dashboard'});
-});
+// router.get('/admin', function(req, res, next) {
+//   // render the admin page in order to see all orders.
+//   res.render('admin', {title: 'Admin Dashboard'});
+// });
 
-router.get('/products/add', function(req, res, next) {
-  // render the add_edit page to add a new product. **ADMIN ONLY**
-  res.render('add_edit', {title: 'Add New Product'});
-});
+// router.get('/products/add', function(req, res, next) {
+//   // render the add_edit page to add a new product. **ADMIN ONLY**
+//   res.render('add_edit', {title: 'Add New Product'});
+// });
 
-router.post('/products/add', function(req, res, next) {
-  // submit the add product page to add a new product to the DB. **ADMIN ONLY**
-  res.redirect('/admin');
-});
+// router.post('/products/add', function(req, res, next) {
+//   // submit the add product page to add a new product to the DB. **ADMIN ONLY**
+//   res.redirect('/admin');
+// });
 
-router.get('/products/:id/edit', function(req, res, next) {
-  // render the add_edit page to edit a product. **ADMIN ONLY**
-  res.render('add_edit', {title: 'Edit Product'});
-});
+// router.get('/products/:id/edit', function(req, res, next) {
+//   // render the add_edit page to edit a product. **ADMIN ONLY**
+//   res.render('add_edit', {title: 'Edit Product'});
+// });
 
-router.post('/products/:id/edit', function(req, res, next) {
-  // submit the edit form to update the product in the DB. **ADMIN ONLY**
-  res.redirect('/admin');
-});
+// router.post('/products/:id/edit', function(req, res, next) {
+//   // submit the edit form to update the product in the DB. **ADMIN ONLY**
+//   res.redirect('/admin');
+// });
 
-router.post('/products/:id/delete', function(req, res, next) {
-  // delete a product from the database. **ADMIN ONLY**
-  res.redirect('/admin');
-});
+// router.post('/products/:id/delete', function(req, res, next) {
+//   // delete a product from the database. **ADMIN ONLY**
+//   res.redirect('/admin');
+// });
 
-router.post('/logout', function(req, res, next) {
-  // log out the user and redirect to the index page.  Possibly with log out connect-flash message.
-  res.redirect('/');
-});
+// router.post('/logout', function(req, res, next) {
+//   // log out the user and redirect to the index page.  Possibly with log out connect-flash message.
+//   res.redirect('/');
+// });
 
 
 module.exports = router;

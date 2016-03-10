@@ -1,3 +1,4 @@
+require('dotenv').load();
 var express   = require('express');
 var router    = express.Router();
 var queries   = require('../queries_m.js');
@@ -27,7 +28,7 @@ router.post('/:id/cart', function(req, res, next) {
 });
 
 
-router.get('/checkout', function(req, res, next) {
+router.get('/charge', function(req, res, next) {
     queries.checkout(req.cookies.id)
     .then(function(data) {
         res.render('checkout', {
@@ -40,6 +41,23 @@ router.get('/checkout', function(req, res, next) {
     });
 });
 
-//the checkout post will be to the stripe api. waiting to write.
+router.post('/charge', function(req, res,next) {
+    var stripeToken = req.body.stripeToken;
+    var amount =  req.body.stripeAmount;
+
+    stripe.charges.create({
+        card: stripeToken,
+        currency: 'usd',
+        amount: amount
+    },
+    function(err, charge) {
+        if (err) {
+            res.send('error');
+        } else {
+            res.send('success');
+        }
+    });
+});
+
 
 module.exports = router;
