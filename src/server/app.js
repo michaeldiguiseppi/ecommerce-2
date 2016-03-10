@@ -33,17 +33,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-function ensureLoggedIn (req, res, next) {
-  if (!req.session.user) {
-    return res.redirect('/login');
-  } else {
-    return next();
-  }
-}
+// function ensureLoggedIn (req, res, next) {
+//   if (!req.session.user) {
+//     return res.redirect('/login');
+//   } else {
+//     return next();
+//   }
+// }
 
 // *** main routes *** //
 app.use('/', routes);
-app.use(ensureLoggedIn);
+// app.use(ensureLoggedIn);
 app.use('/user', users);
 app.use('/admin', admin);
 
@@ -80,5 +80,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.listen(5005, function() {
+  console.log('App is happening on port', 5005);
+})
 
 module.exports = app;

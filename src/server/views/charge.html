@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+<br><br><br>
+ <form action="/charge" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key={{key}}
+      data-amount="1000"
+      data-name="Stripe Example"
+      data-description="Pay Me!"
+      data-currency="usd">
+      </script>
+  </form>
+  <br><br><br>
+
+{% endblock %}
